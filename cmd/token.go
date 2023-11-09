@@ -60,7 +60,9 @@ var tokenCmd = &cobra.Command{
 			now.Minute(),
 			now.Second(),
 			now.Nanosecond(), time.UTC)
-		color.Blue("%s", origin.In(asiaTaipei))
+		color.Blue("AWS Expiration Date: %s", origin.In(asiaTaipei))
+
+		color.Red("Time left: %s", time.Until(origin.In(asiaTaipei)))
 	},
 }
 
