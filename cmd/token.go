@@ -36,6 +36,10 @@ var tokenCmd = &cobra.Command{
 			cfg, err = ini.Load(filePath)
 		}
 
+		if profile == "AWS_PROFILE" {
+			profile = os.Getenv("AWS_PROFILE")
+		}
+
 		if err != nil {
 			log.Fatalf("Fail to read file: %v", color.RedString("%s", err))
 			os.Exit(1)
@@ -68,6 +72,6 @@ var tokenCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(tokenCmd)
-	tokenCmd.PersistentFlags().String("profile", "default", "AWS_PROFILE NAME")
+	tokenCmd.PersistentFlags().String("profile", "AWS_PROFILE", "$AWS_PROFILE env")
 	tokenCmd.Flags().String("file", "default", "The file of credentials")
 }
