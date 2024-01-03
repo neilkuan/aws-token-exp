@@ -17,8 +17,8 @@ import (
 // tokenCmd represents the token command
 var tokenCmd = &cobra.Command{
 	Use:   "token",
-	Short: "A check aws expiration time",
-	Long:  `Get the aws expiration of AWS_PROFILE`,
+	Short: "A check aws expiration time login via aws-azure-login",
+	Long:  `A check aws expiration time login via aws-azure-login`,
 	Run: func(cmd *cobra.Command, _ []string) {
 
 		var defaultFilePath = os.Getenv("HOME") + "/.aws/credentials"

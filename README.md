@@ -23,3 +23,24 @@ AWS_PROFILE=aad-xxx; aws-token-exp token
 2023-11-03 16:11:29 +0800 CST
 ```
 ![](./docs/1.png)
+
+
+## `pc` profile change
+```bash
+go install github.com/neilkuan/aws-token-exp
+
+curl -o ~/pc.sh https://raw.githubusercontent.com/neilkuan/aws-token-exp/main/pc.sh
+
+source ~/pc.sh
+```
+
+### alias in to `~/.zshrc` or `~/.bashrc`
+```bash
+go install github.com/neilkuan/aws-token-exp
+
+curl -o ~/pc.sh https://raw.githubusercontent.com/neilkuan/aws-token-exp/main/pc.sh
+
+echo 'alias pc="source pc.sh"' >> ~/.zshrc
+```
+
+![](./docs/pc-demo.gif)
