@@ -1,4 +1,19 @@
-### Build Arch 
+# Install
+### For Linux users
+
+```bash
+$ curl -fsSL https://github.com/neilkuan/aws-token-exp/releases/latest/download/aws-token-exp-Linux-$(uname -m).tar.gz -o - | tar zxvf -
+$ mv ./aws-token-exp /usr/local/bin/aws-token-exp
+```
+
+### For macOS users
+
+```bash
+$ curl -fsSL https://github.com/neilkuan/aws-token-exp/releases/latest/download/aws-token-exp-Darwin-$(uname -m).tar.gz -o - | tar zxvf -
+$ mv ./aws-token-exp /usr/local/bin/aws-token-exp
+```
+
+## Build Arch 
 ```bash
 GOOS=linux GOARCH=arm64 go build .
 
@@ -27,8 +42,6 @@ AWS_PROFILE=aad-xxx; aws-token-exp token
 
 ## `pc` profile change
 ```bash
-go install github.com/neilkuan/aws-token-exp
-
 curl -o ~/pc.sh https://raw.githubusercontent.com/neilkuan/aws-token-exp/main/pc.sh
 
 source ~/pc.sh
@@ -36,11 +49,14 @@ source ~/pc.sh
 
 ### alias in to `~/.zshrc` or `~/.bashrc`
 ```bash
-go install github.com/neilkuan/aws-token-exp
-
 curl -o ~/pc.sh https://raw.githubusercontent.com/neilkuan/aws-token-exp/main/pc.sh
 
 echo 'alias pc="source pc.sh"' >> ~/.zshrc
 ```
 
 ![](./docs/pc-demo.gif)
+
+
+# License
+
+[Apache-2.0](LICENSE)
