@@ -54,6 +54,29 @@ curl -o ~/pc.sh https://raw.githubusercontent.com/neilkuan/aws-token-exp/main/pc
 echo 'alias pc="source pc.sh"' >> ~/.zshrc
 ```
 
+### fish
+`vim ~/.config/fish/functions/pc.fish`
+```vim
+#!/opt/homebrew/bin/fish
+function pc
+    aws-token-exp pc
+    set -l file_path "/tmp/shared_env.txt"
+    if test -f $file_path
+            set -l key (cat $file_path | cut -d '=' -f 1)
+            set -l value (cat $file_path | cut -d '=' -f 2)
+            set -x $key "$value"
+        echo "Environment var1iables set from $file_path"
+    else
+        echo "File $file_path not found."
+    end
+    
+    aws-azure-login --profile $AWS_PROFILE --disable-gpu
+end
+
+
+```
+
+
 ![](./docs/pc-demo.gif)
 
 
